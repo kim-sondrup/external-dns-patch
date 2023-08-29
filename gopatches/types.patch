@@ -1,0 +1,38 @@
+@@
+@@
+ package externaldns
+ type Config struct {
+   ...
++  TidyDNSEndpoint string
+   ...
+ }
+@@
+@@
+ package externaldns
+ var defaultConfig = &Config{
+   ...,
++  TidyDNSEndpoint: "",
+   ...,
+ }
+@@
+@@
+ package externaldns
+ func (...) ParseFlags(...) error {
+   ...
+   providers := []string{
+     ...,
++    "tidydns",
+     ...,
+   }
+   ...
+ }
+@@
+@@
+ package externaldns
+ func (...) ParseFlags(...) error {
+   ...
+   app.DefaultEnvars()
+# Add flags related to TidyDNS
++  app.Flag("tidydns-endpoint", "Provide the endpoint for the TidyDNS service").Default(defaultConfig.TidyDNSEndpoint).StringVar(&cfg.TidyDNSEndpoint)
+   ...
+ }

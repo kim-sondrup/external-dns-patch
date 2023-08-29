@@ -1,0 +1,36 @@
+@@
+@@
+ package externaldns
+ &Config{
+   ...,
+   APIServerURL:    "",
++  TidyDNSEndpoint: "",
+   ...,
+ }
+@@
+@@
+ package externaldns
+ &Config{
+   ...,
+   APIServerURL:    "http://127.0.0.1:8080",
++  TidyDNSEndpoint: "https://tidy.example.com/index.cgi",
+   ...,
+ }
+@@
+@@
+ package externaldns
+ []string{
+   ...,
+   "--server=http://127.0.0.1:8080",
++  "--tidydns-endpoint=https://tidy.example.com/index.cgi",
+   ...,
+ }
+@@
+@@
+ package externaldns
+ map[string]string{
+   ...,
+   "EXTERNAL_DNS_SERVER":           "http://127.0.0.1:8080",
++  "EXTERNAL_DNS_TIDYDNS_ENDPOINT": "https://tidy.example.com/index.cgi",
+   ...,
+ }

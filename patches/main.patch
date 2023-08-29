@@ -1,0 +1,11 @@
+--- external-dns/main.go	2023-08-28 15:34:28
++++ external-dns-patched/main.go	2023-08-28 15:34:35
+@@ -182,6 +182,8 @@
+
+ 	var p provider.Provider
+ 	switch cfg.Provider {
++	case "tidydns":
++		p, err = tidydns.NewTidyDNSProvider(domainFilter, zoneIDFilter, cfg.TidyDNSEndpoint, cfg.DryRun)
+ 	case "akamai":
+ 		p, err = akamai.NewAkamaiProvider(
+ 			akamai.AkamaiConfig{

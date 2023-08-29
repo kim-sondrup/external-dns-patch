@@ -1,0 +1,6 @@
+@@
+@@
+ package main
++import "sigs.k8s.io/external-dns/provider/tidydns"
+
+ main
